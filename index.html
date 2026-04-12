@@ -3,220 +3,202 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Impacto y Consecuencias de la IA</title>
+<title>Impacto Ético de la IA</title>
 
 <style>
 :root {
-  --azul: #4b6cb7;
-  --oscuro: #1a2a6c;
-  --fondo: #f4f6f9;
-  --texto: #222;
+  --primario: #2c3e50; /* Azul profesional */
+  --acento: #3498db;   /* Azul claro para botones */
+  --fondo: #ffffff;
+  --gris-suave: #f8f9fa;
+  --texto: #333;
+  --nav-ancho: 180px; /* Barra más delgada */
 }
 
 body.dark {
-  --fondo: #121212;
-  --texto: #f1f1f1;
+  --fondo: #1a1a1a;
+  --texto: #e0e0e0;
+  --gris-suave: #2d2d2d;
 }
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  display: flex;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background: var(--fondo);
   color: var(--texto);
+  display: flex;
+  flex-direction: row; /* Layout horizontal */
   transition: 0.3s;
 }
 
+/* CONTENIDO PRINCIPAL A LA IZQUIERDA */
+main {
+  flex: 1;
+  margin-right: var(--nav-ancho); /* Espacio para la barra derecha */
+  padding: 60px 10%;
+  line-height: 1.6;
+}
+
+/* BARRA DE NAVEGACIÓN A LA DERECHA */
 nav {
-  width: 220px;
+  width: var(--nav-ancho);
   height: 100vh;
-  background: var(--oscuro);
+  background: var(--primario);
   position: fixed;
-  padding-top: 30px;
+  right: 0; /* Alineada a la derecha */
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
 }
 
 nav a {
-  display: block;
-  color: white;
-  padding: 15px 20px;
+  color: #bdc3c7;
+  padding: 15px 25px;
   text-decoration: none;
+  font-size: 0.9rem;
+  transition: 0.3s;
+  border-right: 4px solid transparent;
 }
 
 nav a:hover {
-  background: var(--azul);
+  color: white;
+  background: rgba(255,255,255,0.1);
+  border-right: 4px solid var(--acento);
 }
 
 .toggle {
-  margin: 20px;
-  padding: 10px;
-  border: none;
-  background: white;
+  margin: 10px 20px 30px;
+  padding: 8px;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: transparent;
+  color: white;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
 }
 
-main {
-  margin-left: 220px;
-  padding: 40px;
-}
+/* SECCIONES Y DISEÑO */
+h1 { font-weight: 300; font-size: 2.8rem; margin-bottom: 40px; color: var(--primario); }
+body.dark h1 { color: var(--acento); }
 
-h1 {
-  font-size: 2.5rem;
-}
+h2 { border-left: 5px solid var(--acento); padding-left: 15px; margin-top: 50px; }
 
 .seccion {
-  display: flex;
-  gap: 40px;
-  margin-bottom: 80px;
-  align-items: center;
-  opacity: 0;
-  transform: translateY(50px);
-  animation: aparecer 1s forwards;
+  margin-bottom: 100px;
+  animation: fadeUp 1s ease-out forwards;
 }
 
-.seccion:nth-child(even) {
-  flex-direction: row-reverse;
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes aparecer {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.media-container {
+  margin: 30px 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--gris-suave);
 }
 
-img, iframe, video {
+img, video, iframe {
   width: 100%;
-  border-radius: 10px;
+  display: block;
+  border: none;
 }
 
-.btn {
-  display: inline-block;
-  padding: 12px 20px;
-  background: var(--azul);
+.tabla-pro {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px 0;
+  background: var(--gris-suave);
+}
+
+.tabla-pro th, .tabla-pro td {
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+
+.tabla-pro th {
+  background: var(--primario);
   color: white;
-  border-radius: 8px;
-  text-decoration: none;
+  font-weight: 500;
 }
 
-.btn:hover {
-  background: var(--oscuro);
-}
-
-@media(max-width: 800px){
-  nav {
-    position: relative;
-    width: 100%;
-    height: auto;
-  }
-
-  main {
-    margin-left: 0;
-  }
-
-  .seccion {
-    flex-direction: column !important;
-  }
+/* RESPONSIVE */
+@media(max-width: 900px){
+  nav { width: 100%; height: auto; position: relative; right: auto; order: -1; }
+  main { margin-right: 0; padding: 20px; }
+  body { flex-direction: column; }
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-  <button class="toggle" onclick="modoOscuro()">🌙 Modo</button>
-  <a href="#uno">Desinformación</a>
-  <a href="#dos">Privacidad</a>
-  <a href="#tres">Impacto</a>
-</nav>
-
 <main>
+  <h1>Desafíos Éticos de la IA</h1>
+  <p>La inteligencia artificial ha pasado de ser una promesa tecnológica a una fuerza que redefine la estructura de nuestra libertad y convivencia social.</p>
 
-<h1>Consecuencias Éticas del Mal Uso de la Inteligencia Artificial</h1>
-<p>La inteligencia artificial (IA) ha transformado el mundo moderno, pero su uso inadecuado puede generar graves consecuencias sociales, económicas y éticas. A continuación, se analizan algunos de los principales riesgos.</p>
+  <section id="uno" class="seccion">
+    <h2>Desinformación y Realidad</h2>
+    <p>La capacidad de crear contenidos falsos mediante <em>deepfakes</em> no solo engaña al ojo humano, sino que erosiona los cimientos de la confianza pública y la verdad histórica.</p>
+    <div class="media-container">
+      <img src="https://unsplash.com" alt="IA">
+    </div>
+  </section>
 
-<section id="uno" class="seccion">
-  <div>
-    <h2>Desinformación Digital</h2>
-    <h3>Manipulación de la realidad</h3>
-    <p>La IA permite crear contenido falso altamente realista, conocido como <em>deepfakes</em>. Estos pueden ser utilizados para difundir noticias falsas, engañar a las personas y afectar la opinión pública.</p>
+  <section id="dos" class="seccion">
+    <h2>Riesgos para la Libertad</h2>
+    <p>En el periodo actual, la IA introduce mecanismos de control sutiles que ponen en jaque nuestra autonomía individual:</p>
+    
+    <ul>
+      <li><strong>Dependencia de Inteligencia:</strong> El riesgo de ceder nuestra toma de decisiones a algoritmos, reduciendo nuestra capacidad de juicio crítico.</li>
+      <li><strong>Vigilancia Proactiva:</strong> El fin del anonimato en espacios públicos mediante reconocimiento facial y rastreo constante.</li>
+      <li><strong>Autonomía Democrática:</strong> La manipulación de la opinión pública a través de burbujas informativas creadas por IA.</li>
+    </ul>
 
-    <h3>Impacto en la sociedad</h3>
-    <p>La propagación de información falsa genera desconfianza en los medios digitales y puede influir en decisiones importantes como elecciones o conflictos sociales.</p>
+    <table class="tabla-pro">
+      <thead>
+        <tr>
+          <th>Ámbito</th>
+          <th>Oportunidad</th>
+          <th>Riesgo Crítico</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Personal</td>
+          <td>Asistencia inteligente</td>
+          <td>Pérdida de privacidad</td>
+        </tr>
+        <tr>
+          <td>Social</td>
+          <td>Eficiencia colectiva</td>
+          <td>Vigilancia masiva</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 
-    <a href="#" class="btn">Leer más</a>
-  </div>
-  <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995">
-</section>
-
-<section id="dos" class="seccion">
-  <div>
-    <h2>Privacidad y Vigilancia</h2>
-    <h3>Recolección de datos</h3>
-    <p>Muchas aplicaciones de IA recopilan grandes cantidades de datos personales sin que los usuarios sean completamente conscientes de ello.</p>
-
-    <h3>Riesgos para la libertad</h3>
-    <p>Para el periodo 2025-2026, la Inteligencia Artificial ha dejado de ser una simple herramienta para convertirse en una fuerza que redefine la condición humana, alterando profundamente nuestra concepción de la libertad y la verdad. A medida que se integra en todos los aspectos de la vida, desde la medicina hasta la política, los mecanismos de control se vuelven más sutiles y omnipresentes. 
-dialogopolitico.org
-dialogopolitico.org
- +1
-Aquí tienes una expansión detallada sobre los riesgos y tensiones actuales:
-1. El Riesgo de la "Dependencia de Inteligencia"
-A diferencia de la dependencia tecnológica tradicional (como el fuego o la electricidad), estamos desarrollando una dependencia de inteligencia. 
-Santa Clara University
-Santa Clara University
-Pérdida de Agencia: Al permitir que la IA tome decisiones por nosotros bajo la promesa de "optimización", corremos el riesgo de quedar en un estado de inmadurez permanente, donde la IA actúa como un "padre" y los humanos como infantes sin capacidad de elección real.
-Desvalorización de la Creatividad: Aunque la IA puede potenciar la creatividad, también existe el riesgo de que devalúe las contribuciones humanas únicas, reduciendo nuestra libertad de expresión a meras respuestas a sugerencias algorítmicas. 
-Santa Clara University
-Santa Clara University
- +1
-2. Vigilancia Proactiva y Silenciamiento de la Disidencia
-La IA ha insertado a la sociedad en múltiples regímenes de vigilancia que van más allá del simple monitoreo: 
-Identificación de Amenazas: Gobiernos y empresas utilizan IA para identificar amenazas preventivamente, monitorear el sentimiento en redes sociales y silenciar a disidentes mediante el rastreo de redes de contactos y el acoso automatizado.
-Erosión del Anonimato: El uso de bases de datos masivas con miles de millones de fotos permite a las fuerzas del orden identificar a cualquier persona en la calle en segundos, eliminando el derecho al anonimato en espacios públicos. 
-Taylor & Francis Online
-Taylor & Francis Online
-3. Impacto en la Autonomía Democrática
-La libertad colectiva se ve amenazada por la manipulación de los procesos deliberativos:
-La Brecha Deliberativa: El uso de IA en la deliberación política puede reducir la voluntad de los ciudadanos de participar, creando una nueva división entre quienes confían en la tecnología y quienes la ven como un riesgo para la calidad democrática.
-Manipulación de la Verdad: La capacidad de la IA generativa para crear contenido humano convincente de forma algorítmica facilita campañas de desinformación que socavan la libertad de opinión y la soberanía política. 
-Cato Institute
-Cato Institute
- +1
-4. Desafíos Éticos y Legales para 2026
-Para proteger la libertad, la regulación actual se enfoca en principios clave: 
-ScienceDirect.com
-ScienceDirect.com
-Transparencia y Explicabilidad: Es fundamental que las decisiones de la IA sean comprensibles; si no podemos explicar por qué se nos negó un derecho, no somos realmente libres.
-Responsabilidad Humana: Se busca establecer marcos legales donde los desarrolladores y usuarios sean responsables de los actos de la IA, evitando que el algoritmo se convierta en un "sujeto sin responsabilidad" que vulnere derechos fundamentales sin consecuencias. 
-ScienceDirect.com
-ScienceDirect.com
- +1
-Comparativa: Beneficio vs. Riesgo para la Libertad
-Dimensión 	Promesa de Libertad	Riesgo de Control
-Intelectual	Acceso instantáneo a todo el conocimiento humano.	Dependencia cognitiva y pérdida de juicio crítico.
-Política	Herramientas de comunicación de bajo costo para activistas.	Vigilancia masiva y persecución de disidentes.
-Civil	Simplificación de trámites y eficiencia administrativa.	Decisiones opacas que violan el debido proceso.
-En conclusión, aunque la IA puede potenciar la expresión humana, su desarrollo actual exige límites regulatorios basados en los derechos humanos para garantizar que la tecnología sirva a la dignidad y autonomía de las personas, y no al revés.</p>
-  </div>
-  <iframe src="https://www.youtube.com/embed/imlqI6bjlp8"></iframe>
-</section>
-
-<section id="tres" class="seccion">
-  <div>
-    <h2>Impacto en el Empleo</h2>
-    <h3>Automatización laboral</h3>
-    <p>La IA puede reemplazar trabajos humanos, especialmente aquellos que implican tareas repetitivas o mecánicas.</p>
-
-    <h3>Desigualdad social</h3>
-    <p>Si no se gestiona adecuadamente, la automatización puede aumentar la desigualdad económica y dejar a muchas personas sin oportunidades laborales.</p>
-  </div>
-  <video autoplay muted loop>
-    <source src="https://cdn.coverr.co/videos/coverr-working-on-ai-technology-5170/1080p.mp4">
-  </video>
-</section>
-
+  <section id="tres" class="seccion">
+    <h2>Impacto Laboral</h2>
+    <p>La automatización redefine el valor del trabajo humano. El desafío ético reside en asegurar que la tecnología amplifique nuestras capacidades en lugar de profundizar la desigualdad social.</p>
+    <div class="media-container">
+      <video autoplay muted loop>
+        <source src="https://coverr.co" type="video/mp4">
+      </video>
+    </div>
+  </section>
 </main>
+
+<nav>
+  <button class="toggle" onclick="modoOscuro()">🌓 Cambiar Tema</button>
+  <a href="#uno">Desinformación</a>
+  <a href="#dos">Libertad</a>
+  <a href="#tres">Impacto Social</a>
+</nav>
 
 <script>
 function modoOscuro(){
