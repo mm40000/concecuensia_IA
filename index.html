@@ -7,8 +7,8 @@
 
 <style>
 :root {
-  --primario: #0f172a; /* Azul casi negro profesional */
-  --acento: #3b82f6;   /* Azul moderno vibrante */
+  --primario: #0f172a;
+  --acento: #3b82f6;   
   --fondo: #f1f5f9;
   --tarjeta: #ffffff;
   --texto: #1e293b;
@@ -32,7 +32,7 @@ body {
   transition: background 0.4s ease;
 }
 
-/* CONTENIDO PRINCIPAL */
+
 main {
   flex: 1;
   margin-right: var(--nav-ancho);
@@ -54,7 +54,6 @@ h1 {
   font-weight: 500;
 }
 
-/* SECCIONES ESTILO TARJETA */
 .seccion {
   background: var(--tarjeta);
   padding: 40px;
@@ -78,7 +77,6 @@ h2 {
   gap: 10px;
 }
 
-/* MULTIMEDIA */
 .media-container {
   margin-top: 25px;
   border-radius: 16px;
@@ -118,7 +116,7 @@ img, video {
   background: rgba(125,125,125,0.02);
 }
 
-/* PIE DE PÁGINA PERSONALIZADO */
+
 footer {
   margin-top: 60px;
   padding: 30px;
@@ -135,7 +133,7 @@ footer {
   margin-top: 5px;
 }
 
-/* BARRA DERECHA "GLASSMORTPHISM" */
+
 nav {
   width: var(--nav-ancho);
   height: 100vh;
@@ -179,7 +177,7 @@ nav a:hover {
   background: var(--acento);
 }
 
-/* RESPONSIVE */
+
 @media(max-width: 1000px){
   nav { width: 100%; height: auto; position: relative; backdrop-filter: none; background: #0f172a; }
   main { margin-right: 0; padding: 20px; }
